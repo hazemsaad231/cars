@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+/*home*/
+
+.father{
+  background-image: url('src/assets/color.png');
+}
+
+#bg {
+    margin: 0 auto;
+    animation-name: stretch;
+    animation-duration: 3s; 
+    animation-timing-function: ease-out; 
+    animation-iteration-count:initial;
+}
+  
+  @keyframes stretch {
+    0% {
+      transform: scale(.4);
+     
+    }
+    100% {
+      transform: scale(1);
+     
+    }
+  }
+  
+  /*details*/
+  .baba{
+    background-image: url('src/assets/color.png');
+    
+  }
+.audi {
+    animation-name: stretch;
+    animation-duration: 3s; 
+    animation-timing-function: ease-out; 
+    animation-iteration-count:initial;
+}
+  
+  @keyframes stretch {
+    0% {
+      transform: scale(.3);
+     
+    }
+
+    100% {
+      transform: scale(1);
+     
+    }
+  }
