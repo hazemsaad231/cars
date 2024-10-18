@@ -35,18 +35,18 @@ const [value,setValue] = useState('')
 const search = () => {
     
     return data.filter((item) =>
-        item.make.toUpperCase().includes(value.toUpperCase())); 
+        item.car.toUpperCase().includes(value.toUpperCase())); 
   };
 
 
     const getData = async()=>{
 
         try{
-            let response =await axios.get('https://freetestapi.com/api/v1/cars?limit=4')
+            let response =await axios.get(`https://myfakeapi.com/api/cars?limit=4`)
+            console.log(response.data.cars)
+            setData(response.data.cars)
 
-            console.log(response.data)
-
-            setData(response.data)
+           
         }
         catch(error){
 
@@ -62,8 +62,8 @@ const search = () => {
         <div>
       
        <div className='flex flex-row mt-10 ml-20 gap-4'>
-        <img src={logo} alt="logo" className='w-10 h-10 '/> 
-        <h2 className='text-md  text-start text-blue-400 font-extrabold mt-1 hover:text-blue-800'>RENTCARS</h2>
+        <img src={logo} alt="logo" className='w-10 h-10' id='logo'/> 
+        <h2 className='text-xl  text-start text-blue-400 font-extrabold mt-1 hover:text-blue-800'>RENTCARS</h2>
         </div>
           
               <div className='w-[100%] grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2'>
@@ -96,9 +96,9 @@ const search = () => {
  <div key={el.id} className='flex flex-col text-center border-2 mb-4 shadow-2xl w-[100%] gap-2 justify-center  py-2'>
 
  <img src={carC} alt="image" className='w-50 h-50 m-auto mb-5'  />
- <h2 className='text-start font-medium text-2xl mt-2 ml-6 mb-4'>{el.make}</h2>
+ <h2 className='text-start font-medium text-2xl mt-2 ml-6 mb-4'>{el.car}</h2>
 
-<div className='flex px-2'> 
+<div className='flex px-3'> 
     <img src={star} alt="" className='w-5 h-5'/>
     <span className='font-bold'>4.6</span>
     <span className='text-gray-400'>(1345 reviews)</span>
@@ -120,10 +120,10 @@ const search = () => {
 
  <div className='flex font-serif  justify-around'>
     <div className='flex '> 
-    <span className='text-gray-600 ml-1  text-sm sm:text-sm md:text-md lg:text-lg xl:text-lg'> {el.year}</span></div>
+    <span className='text-gray-600 ml-1  text-sm sm:text-sm md:text-md lg:text-lg xl:text-lg'> {el.car_model}</span></div>
     <div className='flex ml-28'>
         <img src={frame} alt="" className='w-5 h-5' />
-        <span className='text-gray-600  text-sm sm:text-sm md:text-md lg:text-md xl:text-md'>{el.transmission}</span>
+        <span className='text-gray-600  text-sm sm:text-sm md:text-md lg:text-md xl:text-md'>{el.car_model_year}</span>
     </div>
  </div>
 
@@ -131,7 +131,7 @@ const search = () => {
 
  <div className='flex justify-around px-4 mt-5'>
      <h5 className='font-serif'>price</h5>
-     <h5 className='font-bold'>${el.price}</h5>
+     <h5 className='font-bold'>{el.price}</h5>
  </div>
  <br />
  <button className='m-auto bg-blue-600 text-white h-[4vh]  rounded-lg p-2 px-10 hover:bg-blue-800'><Link to={'details'}>view details</Link></button>
@@ -254,7 +254,7 @@ const search = () => {
 <h1 className='font-semibold text-4xl mb-3'> Download Rentcars App for <span className='text-blue-500'>FREE</span> </h1>
 <p className='text-gray-500 text-sm'>For faster, easier booking and exclusive deals.</p>
 <div>
-    <img src={iphone} alt="" className='absolute right-[5%] w-[20%] hidden sm:hidden md:hidden lg:block xl:block' />
+    <img src={iphone} alt="" className='absolute right-[5%] w-[20%] h-80 hidden sm:hidden md:hidden lg:block xl:block' />
 </div>
 
 
